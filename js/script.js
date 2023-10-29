@@ -10,6 +10,9 @@ var numLetras = palavraEscolhida.length;
 
 const boneco = new Boneco(ctx);
 
+const teclas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+let letrasRepetidas = [];
+
 function cabo(){
     ctx.lineWidth = 10;
     ctx.beginPath();
@@ -35,7 +38,7 @@ function letraEscolhida(){
     }
 
     if(!tentativas.includes(event.key) && palavraEscolhida.includes((event.key).toUpperCase())){
-        letrasRepetidas();
+        letrasTentadas()
         for(var i = 0; i < numLetras; i++){
             if(palavraEscolhida[i] == (event.key).toUpperCase()){
                 ctx.fillStyle = "#fff";
@@ -47,26 +50,51 @@ function letraEscolhida(){
     }
 
     else{
-        letrasRepetidas();
+        letrasTentadas()
         erros++;
         boneco.desenhaBoneco(erros);
     }
 }
 
-function letrasRepetidas(){
+function letrasTentadas(){
     if(!tentativas.includes(event.key)){
         tentativas = tentativas + event.key;
-        ctx.fillStyle = "#000";
-        ctx.font = "32px Arial";
-        ctx.fillText("Letras já escolhidas: " + tentativas.toUpperCase(),30,750);
     }
 }
 
-cabo();
-linhasLetra();
+function teclasLetras() {
+
+    for (let i = 0; i < teclas.length; i++) {
+
+        if(letrasRepetidas.includes(teclas[i])){
+            ctx.fillStyle = '#8a0a0a';
+        }
+        else{
+            ctx.fillStyle = '#064713';
+        }
+        
+        ctx.fillRect(i * 52 + 25, 700, 40, 40);
+        ctx.fillStyle = '#ffffff';
+        ctx.font = "20px Arial";
+        ctx.fillText(teclas[i], i * 52 + 37, 728);
+    }
+}
 
 document.addEventListener('keydown', function(event){
+
     if(event.keyCode >= 65 && event.keyCode <= 90){
         letraEscolhida();
+        
+        const letras = String.fromCharCode(event.keyCode).toUpperCase();
+
+        if (!letrasRepetidas.includes(letras)) {
+          letrasRepetidas.push(letras);
+          teclasLetras();
+        }
     }
+
 });
+
+cabo();
+linhasLetra();
+teclasLetras();
