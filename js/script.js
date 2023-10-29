@@ -1,17 +1,19 @@
 const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
 
-const palavras = ['MUSSARELO', 'NETFLIXO', 'NIVIO', 'SAMSUNGO', 'CARAPICUIBO', 'CAPIVARO', 'BORBOLETO', 'LUDMILO', 'CARAGUATATUBO', 'IPHONO'];
+const palavras = ['MUSSARELO', 'NETFLIXO', 'NIVIO', 'SAMSUNGO', 'CARAPICUIBO', 'CAPIVARO', 'BORBOLETO', 'LUDMILO', 'CARAGUATATUBO', 'IPHONO', 'SALSICHO', 'LASANHO', 'MARADONO', 'GELADEIRO', 'LANTEJOLO', 'TILAPIO', 'MONALISO', 'CARAMBOLO', 'PITANGO', 'CEREJO', 'MARGARIDO', 'TUBAINO', 'ANITO', 'PICANHO', 'CALABRESO', 'INSETICIDO', 'PRINCESO', 'ZEBRO', 'CENOURO', 'DONZELO', 'CNPJOTO'];
 var erros = 0;
 var acertos = 0;
 var tentativas = "";
-const palavraEscolhida = palavras[Math.floor(Math.random() * 10)];
+var palavraEscolhida = palavras[Math.floor(Math.random() * 31)];
 var numLetras = palavraEscolhida.length;
+
+var finalizou = false;
 
 const boneco = new Boneco(ctx);
 
 const teclas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-let letrasRepetidas = [];
+var letrasRepetidas = [];
 
 function cabo(){
     ctx.lineWidth = 10;
@@ -54,12 +56,26 @@ function letraEscolhida(){
         erros++;
         boneco.desenhaBoneco(erros);
     }
+    verificaFimJogo();
 }
-
 function letrasTentadas(){
     if(!tentativas.includes(event.key)){
         tentativas = tentativas + event.key;
     }
+}
+function verificaFimJogo(){
+    if(erros >= 6){
+        finalizou = true;  
+        ctx.fillStyle = '#ab0000';
+        ctx.font = "40px Arial Black";
+        ctx.fillText("Perdeu Coração! A gíria era: " + palavraEscolhida, 400, 200); 
+  }
+    if(acertos == numLetras){
+        finalizou = true;
+        ctx.fillStyle = '#007326';
+        ctx.font = "40px Arial Black";
+        ctx.fillText("Boa Vidoco, você venceu!", 600, 200);
+  }
 }
 
 function teclasLetras() {
@@ -80,16 +96,22 @@ function teclasLetras() {
     }
 }
 
+function Gerar(){
+    window.location.reload();
+}
+
 document.addEventListener('keydown', function(event){
 
     if(event.keyCode >= 65 && event.keyCode <= 90){
-        letraEscolhida();
-        
-        const letras = String.fromCharCode(event.keyCode).toUpperCase();
+        if(finalizou == false){
+            letraEscolhida();
+            
+            const letras = String.fromCharCode(event.keyCode).toUpperCase();
 
-        if (!letrasRepetidas.includes(letras)) {
-          letrasRepetidas.push(letras);
-          teclasLetras();
+            if (!letrasRepetidas.includes(letras)) {
+                letrasRepetidas.push(letras);
+                teclasLetras();
+            }
         }
     }
 
