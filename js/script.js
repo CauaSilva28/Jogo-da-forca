@@ -1,11 +1,11 @@
 const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
 
-const palavras = ['MUSSARELO', 'NETFLIXO', 'NIVIO', 'SAMSUNGO', 'CARAPICUIBO', 'CAPIVARO', 'BORBOLETO', 'LUDMILO', 'CARAGUATATUBO', 'IPHONO', 'SALSICHO', 'LASANHO', 'MARADONO', 'GELADEIRO', 'LANTEJOLO', 'TILAPIO', 'MONALISO', 'CARAMBOLO', 'PITANGO', 'CEREJO', 'MARGARIDO', 'TUBAINO', 'ANITO', 'PICANHO', 'CALABRESO', 'INSETICIDO', 'PRINCESO', 'ZEBRO', 'CENOURO', 'DONZELO', 'CNPJOTO'];
+const palavras = ['MUSSARELO', 'NETFLIXO', 'NIVIO', 'SAMSUNGO', 'CARAPICUIBO', 'CAPIVARO', 'BORBOLETO', 'LUDMILO', 'CARAGUATATUBO', 'IPHONO', 'SALSICHO', 'LASANHO', 'MARADONO', 'GELADEIRO', 'LANTEJOLO', 'TILAPIO', 'MONALISO', 'CARAMBOLO', 'PITANGO', 'CEREJO', 'MARGARIDO', 'TUBAINO', 'ANITO', 'PICANHO', 'CALABRESO', 'INSETICIDO', 'PRINCESO', 'ZEBRO', 'CENOURO', 'DONZELO', 'CNPJOTO', 'FRIGIDEIRO', 'ARARAQUARO', 'DELICIO', 'SEREIO', 'LAPISEIRO', 'CANETO', 'ALINO', 'CALOPSITO', 'MORTADELO'];
 var erros = 0;
 var acertos = 0;
 var tentativas = "";
-var palavraEscolhida = palavras[Math.floor(Math.random() * 31)];
+var palavraEscolhida = palavras[Math.floor(Math.random() * 40)];
 var numLetras = palavraEscolhida.length;
 
 var finalizou = false;
@@ -96,6 +96,58 @@ function teclasLetras() {
     }
 }
 
+function dicas(){
+    if(palavraEscolhida == 'MUSSARELO' || palavraEscolhida == 'SALSICHO' || palavraEscolhida == 'LASANHO' || palavraEscolhida == 'PITANGO' || palavraEscolhida == 'PICANHO' || palavraEscolhida == 'CARAMBOLO' || palavraEscolhida == 'CEREJO' || palavraEscolhida == 'CALABRESO' || palavraEscolhida == 'CENOURO' || palavraEscolhida == 'MORTADELO'){
+        ctx.fillStyle = '#fff';
+        ctx.font = '30px Arial black'
+        ctx.fillText("Dica: Alimento", 50,150);
+    }
+
+    if(palavraEscolhida == 'NETFLIXO' || palavraEscolhida == 'SAMSUNGO' || palavraEscolhida == 'IPHONO' || palavraEscolhida == 'TUBAINO'){
+        ctx.fillStyle = "#fff";
+        ctx.font = '30px Arial black'
+        ctx.fillText("Dica: Marca", 50,150);
+    }
+
+    if(palavraEscolhida == 'CARAPICUIBO' || palavraEscolhida == 'CARAGUATATUBO' || palavraEscolhida == 'ARARAQUARO'){
+        ctx.fillStyle = "#fff";
+        ctx.font = '30px Arial black'
+        ctx.fillText("Dica: Cidade", 50,150);
+    }
+
+    if(palavraEscolhida == 'CAPIVARO' || palavraEscolhida == 'BORBOLETO' || palavraEscolhida == 'ZEBRO' || palavraEscolhida == 'TILAPIO' || palavraEscolhida == 'CALOPSITO'){
+        ctx.fillStyle = "#fff";
+        ctx.font = '30px Arial black'
+        ctx.fillText("Dica: Animal", 50,150);
+    }
+
+    if(palavraEscolhida == 'LUDMILO' || palavraEscolhida == 'ANITO' || palavraEscolhida == 'MARADONO' || palavraEscolhida == 'MONALISO'){
+        ctx.fillStyle = "#fff";
+        ctx.font = '30px Arial black'
+        ctx.fillText("Dica: Celebridade", 50,150);
+    }
+
+    if(palavraEscolhida == 'GELADEIRO' || palavraEscolhida == 'LANTEJOLO' || palavraEscolhida == 'FRIGIDEIRO' || palavraEscolhida == 'INSETICIDO'){
+        ctx.fillStyle = "#fff";
+        ctx.font = '30px Arial black'
+        ctx.fillText("Dica: Objetos", 50,150);
+    }
+
+    if(palavraEscolhida == 'PRINCESO' || palavraEscolhida == 'DONZELO' || palavraEscolhida == 'CNPJOTO' || palavraEscolhida == 'DELICIO' || palavraEscolhida == 'SEREIO' || palavraEscolhida == 'MARGARIDO'){
+        ctx.fillStyle = "#fff";
+        ctx.font = '30px Arial black'
+        ctx.fillText("Dica: Diversos", 50,150);
+    }
+
+    if(palavraEscolhida == 'NIVIO' || palavraEscolhida == 'ALINO' || palavraEscolhida == 'LAPISEIRO' || palavraEscolhida == 'CANETO'){
+        ctx.fillStyle = "#fff";
+        ctx.font = '30px Arial black'
+        ctx.fillText("Dica: Escola", 50,150);
+    }
+
+
+}
+
 function Gerar(){
     window.location.reload();
 }
@@ -117,6 +169,7 @@ document.addEventListener('keydown', function(event){
 
 });
 
+dicas();
 cabo();
 linhasLetra();
 teclasLetras();
