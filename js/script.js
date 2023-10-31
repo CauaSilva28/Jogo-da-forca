@@ -67,7 +67,7 @@ function verificaFimJogo(){
     if(erros >= 6){
         finalizou = true;  
         ctx.fillStyle = '#ab0000';
-        ctx.font = "40px Arial Black";
+        ctx.font = "35px Arial Black";
         ctx.fillText("Perdeu Coração! A gíria era: " + palavraEscolhida, 400, 200); 
   }
     if(acertos == numLetras){
