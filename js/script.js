@@ -25,7 +25,7 @@ function cabo(){
     ctx.stroke();
 }
 
-function linhasLetra(){
+function linhasLetra(){ //Irá fazer as linhas que ficam em baixo da palavra
     for(var i = 0; i < numLetras; i++){
         ctx.beginPath();
         ctx.moveTo((i+4)*81, 600);
@@ -34,7 +34,7 @@ function linhasLetra(){
     }
 }
 
-function letraEscolhida(){
+function letraEscolhida(){ //Irá verficar a letra escolhida e ver se está certo ou errado
     if(tentativas.includes(event.key)){
         alert("Essa letra ja foi escolhida!");
     }
@@ -58,12 +58,14 @@ function letraEscolhida(){
     }
     verificaFimJogo();
 }
-function letrasTentadas(){
+
+function letrasTentadas(){ //Irá adicionar as letras que foram tentadas na variavel tentativas
     if(!tentativas.includes(event.key)){
         tentativas = tentativas + event.key;
     }
 }
-function verificaFimJogo(){
+
+function verificaFimJogo(){ //Condições de vitória e derrota
     if(erros >= 6){
         finalizou = true;  
         ctx.fillStyle = '#ab0000';
@@ -78,7 +80,7 @@ function verificaFimJogo(){
   }
 }
 
-function teclasLetras() {
+function teclasLetras() { //Cria as teclas com as letras que mudam de cor quando são escolhidas
 
     for (let i = 0; i < teclas.length; i++) {
 
@@ -96,7 +98,7 @@ function teclasLetras() {
     }
 }
 
-function dicas(){
+function dicas(){ //Irá dar uma dica dependendo da palavra sorteada
     if(palavraEscolhida == 'MUSSARELO' || palavraEscolhida == 'SALSICHO' || palavraEscolhida == 'LASANHO' || palavraEscolhida == 'PITANGO' || palavraEscolhida == 'PICANHO' || palavraEscolhida == 'CARAMBOLO' || palavraEscolhida == 'CEREJO' || palavraEscolhida == 'CALABRESO' || palavraEscolhida == 'CENOURO' || palavraEscolhida == 'MORTADELO'){
         ctx.fillStyle = '#fff';
         ctx.font = '30px Arial black'
@@ -148,12 +150,11 @@ function dicas(){
 
 }
 
-function Gerar(){
+function Gerar(){ //Reinicia a página
     window.location.reload();
 }
 
 document.addEventListener('keydown', function(event){
-
     if(event.keyCode >= 65 && event.keyCode <= 90){
         if(finalizou == false){
             letraEscolhida();
