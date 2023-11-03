@@ -61,7 +61,7 @@ function letraEscolhida(){ //Irá verficar a letra escolhida e ver se está cert
 
 function letrasTentadas(){ //Irá adicionar as letras que foram tentadas na variavel tentativas
     if(!tentativas.includes(event.key)){
-        tentativas = tentativas + event.key;
+        tentativas += event.key;
     }
 }
 
@@ -92,62 +92,47 @@ function teclasLetras() { //Cria as teclas com as letras que mudam de cor quando
         }
         
         ctx.fillRect(i * 52 + 25, 700, 40, 40);
-        ctx.fillStyle = '#ffffff';
+        ctx.fillStyle = '#fff';
         ctx.font = "20px Arial";
         ctx.fillText(teclas[i], i * 52 + 37, 728);
     }
 }
 
 function dicas(){ //Irá dar uma dica dependendo da palavra sorteada
+    ctx.fillStyle = "#fff";
+    ctx.font = '30px Arial black'
+
     if(palavraEscolhida == 'MUSSARELO' || palavraEscolhida == 'SALSICHO' || palavraEscolhida == 'LASANHO' || palavraEscolhida == 'PITANGO' || palavraEscolhida == 'PICANHO' || palavraEscolhida == 'CARAMBOLO' || palavraEscolhida == 'CEREJO' || palavraEscolhida == 'CALABRESO' || palavraEscolhida == 'CENOURO' || palavraEscolhida == 'MORTADELO'){
-        ctx.fillStyle = '#fff';
-        ctx.font = '30px Arial black'
         ctx.fillText("Dica: Alimento", 50,150);
     }
 
     if(palavraEscolhida == 'NETFLIXO' || palavraEscolhida == 'SAMSUNGO' || palavraEscolhida == 'IPHONO' || palavraEscolhida == 'TUBAINO'){
-        ctx.fillStyle = "#fff";
-        ctx.font = '30px Arial black'
         ctx.fillText("Dica: Marca", 50,150);
     }
 
     if(palavraEscolhida == 'CARAPICUIBO' || palavraEscolhida == 'CARAGUATATUBO' || palavraEscolhida == 'ARARAQUARO'){
-        ctx.fillStyle = "#fff";
-        ctx.font = '30px Arial black'
         ctx.fillText("Dica: Cidade", 50,150);
     }
 
     if(palavraEscolhida == 'CAPIVARO' || palavraEscolhida == 'BORBOLETO' || palavraEscolhida == 'ZEBRO' || palavraEscolhida == 'TILAPIO' || palavraEscolhida == 'CALOPSITO'){
-        ctx.fillStyle = "#fff";
-        ctx.font = '30px Arial black'
         ctx.fillText("Dica: Animal", 50,150);
     }
 
     if(palavraEscolhida == 'LUDMILO' || palavraEscolhida == 'ANITO' || palavraEscolhida == 'MARADONO' || palavraEscolhida == 'MONALISO'){
-        ctx.fillStyle = "#fff";
-        ctx.font = '30px Arial black'
         ctx.fillText("Dica: Celebridade", 50,150);
     }
 
     if(palavraEscolhida == 'GELADEIRO' || palavraEscolhida == 'LANTEJOLO' || palavraEscolhida == 'FRIGIDEIRO' || palavraEscolhida == 'INSETICIDO'){
-        ctx.fillStyle = "#fff";
-        ctx.font = '30px Arial black'
         ctx.fillText("Dica: Objetos", 50,150);
     }
 
     if(palavraEscolhida == 'PRINCESO' || palavraEscolhida == 'DONZELO' || palavraEscolhida == 'CNPJOTO' || palavraEscolhida == 'DELICIO' || palavraEscolhida == 'SEREIO' || palavraEscolhida == 'MARGARIDO'){
-        ctx.fillStyle = "#fff";
-        ctx.font = '30px Arial black'
         ctx.fillText("Dica: Diversos", 50,150);
     }
 
     if(palavraEscolhida == 'NIVIO' || palavraEscolhida == 'ALINO' || palavraEscolhida == 'LAPISEIRO' || palavraEscolhida == 'CANETO'){
-        ctx.fillStyle = "#fff";
-        ctx.font = '30px Arial black'
         ctx.fillText("Dica: Escola", 50,150);
     }
-
-
 }
 
 function Gerar(){ //Reinicia a página
