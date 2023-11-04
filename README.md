@@ -25,7 +25,11 @@
 <p>A função "letrasTentadas()" é responsável por adicionar as letras ja tentadas pelo jogador na variável tentativas, assim fazendo com que toda vez que ele repita a letra, mostre um alert e conte como erro.</p>
 
 <img src='img/vitoriaederrota.jpg' />
-<p>"verificaFimJogo()" irá verificar se o jogador ganhou ou perdeu, com condições de que se os erros forem >= 6, irá aparecer uma mensagem de derrota mostrando qual era a resposta e formará o boneco, e se a quantidade de acertos for igual a quantidade de letras que possui a palavara sorteada, irá aparecer uma mensagem de vitória e formará a palavra.</p>
+<p>"verificaFimJogo()" irá verificar se o jogador ganhou ou perdeu, com condições de que se os erros forem >= 6, irá aparecer uma mensagem de derrota mostrando qual era a resposta e formará o boneco, e se a quantidade de acertos for igual a quantidade de letras que possui a palavara sorteada, irá aparecer uma mensagem de vitória e formará a palavra. Está sendo mostrado na imagem acima.</p>
+
+<p>A função "teclasLetras()" cria os quadrados verdes com as letras que mudam de cor para vermelho quando são escolhidas.</p>
+
+<p>Na função "dicas()" possui condições que verificam a palavra sorteada e irá dar uma dica dependendo dela.</p>
 
 <img src='img/script2.jpg' />
 <p>No final tem a função "Gerar()" que é responsável por reiniciar a página HTML clicando no botão.</p>
