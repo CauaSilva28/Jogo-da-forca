@@ -35,3 +35,17 @@
 <p>No final tem a função "Gerar()" que é responsável por reiniciar a página HTML clicando no botão.</p>
 <p>Dentro do "document.addEventListenner" possui um if que faz funcionar apenas as teclas que possuem letras no teclado e outro para verificar se o jogo não está finalizado, se estiver, o jogo irá parar de funcionar e será preciso reiniciar a página ou clicar no botão para reiniciar.</p>
 <p>Depois foram chamadas as funções que fazem o jogo funcionar.</p>
+
+# Diagramas
+
+## Documentação
+<img src='img/documentacao.jpg' />
+
+## Casos de uso
+<img src='img/casosdeusoforca.jpg' />
+
+## Diagrama de classes
+<img src='img/classesforca.jpg' />
+
+## Diagrama de atividades
+<img src='img/atividadeforca.jpg' />
